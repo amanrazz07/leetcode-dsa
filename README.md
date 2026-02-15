@@ -23,21 +23,22 @@ Hard   : 39
 
 ## 🗂 Repository Structure
 
-leetcode-dsa/
- ├── Arrays/
- ├── Strings/
- ├── LinkedList/
- ├── Stack/
- ├── Queue/
- ├── Trees/
- ├── Graphs/
- ├── DynamicProgramming/
- ├── Backtracking/
- ├── BinarySearch/
- ├── SlidingWindow/
- ├── TwoPointers/
- ├── Greedy/
- └── Heap/
+
+## 🧠 Topics Covered
+
+- Arrays  
+- Strings  
+- Linked List  
+- Stack & Queue  
+- Trees & Binary Trees  
+- Graphs  
+- Dynamic Programming  
+- Backtracking  
+- Binary Search  
+- Sliding Window  
+- Two Pointers  
+- Greedy Algorithms  
+- Heap / Priority Queue  
 
 ---
 
