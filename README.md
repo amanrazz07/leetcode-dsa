@@ -1,7 +1,6 @@
-# 🚀 LeetCode DSA Journey
+# LeetCode DSA Journey
 
 Hi 👋  
-
 Welcome to my structured Data Structures & Algorithms journey on LeetCode.
 
 This repository contains my organized Java solutions categorized by topic and difficulty.  
@@ -11,12 +10,10 @@ I consistently solve problems to strengthen problem-solving skills and prepare f
 
 ## 📊 Problem Solving Stats
 
-```
-Total Problems Solved : 262
-Easy   : 102
-Medium : 121
-Hard   : 39
-```
+Total Problems Solved : 262  
+Easy   : 102  
+Medium : 121  
+Hard   : 39  
 
 ✔ Focused on pattern recognition  
 ✔ Optimized time & space complexity  
@@ -26,36 +23,25 @@ Hard   : 39
 
 ## 🗂 Repository Structure
 
-```
 leetcode-dsa/
-├── Arrays/
-├── Strings/
-├── LinkedList/
-├── Stack/
-├── Queue/
-├── Trees/
-├── Graphs/
-├── DynamicProgramming/
-├── Backtracking/
-├── BinarySearch/
-├── SlidingWindow/
-├── TwoPointers/
-├── Greedy/
-└── Heap/
-```
-
-Each file follows this naming convention:
-
-`ProblemName_LeetCodeNumber.java`
-
-Examples:
-- `TwoSum_1.java`
-- `ContainerWithMostWater_11.java`
-- `NumberOfIslands_200.java`
+ ├── Arrays/
+ ├── Strings/
+ ├── LinkedList/
+ ├── Stack/
+ ├── Queue/
+ ├── Trees/
+ ├── Graphs/
+ ├── DynamicProgramming/
+ ├── Backtracking/
+ ├── BinarySearch/
+ ├── SlidingWindow/
+ ├── TwoPointers/
+ ├── Greedy/
+ └── Heap/
 
 ---
 
-## 🧠 Topics Covered
+##  Topics Covered
 
 - Arrays  
 - Strings  
@@ -75,7 +61,7 @@ Examples:
 
 ## 🛠 Language Used
 
-Java  
+Java
 
 All solutions include:
 - Problem number  
@@ -87,7 +73,7 @@ All solutions include:
 
 ## 🎯 Goal
 
-- Solve 400+ quality problems  
+- Solve 1000+ quality problems  
 - Master core DSA patterns  
 - Build strong interview confidence  
 - Crack top product-based companies  
