@@ -7,10 +7,10 @@ I am consistently solving Data Structures & Algorithms questions to strengthen p
 
 ## 📊 Progress
 
-- Total Problems Solved: 0
-- Easy: 0
-- Medium: 0
-- Hard: 0
+- Total Problems Solved: 262
+- Easy: 102
+- Medium: 121
+- Hard: 39
 
 ---
 
