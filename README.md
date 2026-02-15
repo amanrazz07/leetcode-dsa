@@ -21,27 +21,6 @@ Hard   : 39
 
 ---
 
-## 🗂 Repository Structure
-
-
-## 🧠 Topics Covered
-
-- Arrays  
-- Strings  
-- Linked List  
-- Stack & Queue  
-- Trees & Binary Trees  
-- Graphs  
-- Dynamic Programming  
-- Backtracking  
-- Binary Search  
-- Sliding Window  
-- Two Pointers  
-- Greedy Algorithms  
-- Heap / Priority Queue  
-
----
-
 ##  Topics Covered
 
 - Arrays  
