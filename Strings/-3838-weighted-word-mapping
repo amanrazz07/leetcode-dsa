@@ -1,0 +1,31 @@
+// Word Weight Mapping
+// Topic: Strings
+// Time Complexity: O(total characters)
+// Space Complexity: O(1) extra
+
+class Solution {
+
+    public String mapWordWeights(String[] words,int[] weights){
+
+        String result="";
+
+        for(int i=0;i<words.length;i++){
+
+            int sum=0;
+            String word=words[i];
+
+            for(int j=0;j<word.length();j++){
+                char ch=word.charAt(j);
+                sum+=weights[ch-'a'];
+            }
+
+            int mod=sum%26;
+
+            char mapped=(char)('z'-mod);
+
+            result+=mapped;
+        }
+
+        return result;
+    }
+}
