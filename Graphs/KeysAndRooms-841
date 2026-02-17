@@ -1,0 +1,42 @@
+// LeetCode 841
+// Keys and Rooms
+// Topic: Graphs (BFS)
+// Difficulty: Medium
+// Time Complexity: O(N + E)
+// Space Complexity: O(N)   // due to visited array and queue
+
+import java.util.*;
+
+class Solution {
+
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        int n = rooms.size();
+        boolean[] visited = new boolean[n];
+
+        bfs(0, rooms, visited);
+
+        for (boolean roomVisited : visited) {
+            if (!roomVisited)
+                return false;
+        }
+
+        return true;
+    }
+
+    private void bfs(int start, List<List<Integer>> rooms, boolean[] visited) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(start);
+        visited[start] = true;
+
+        while (!queue.isEmpty()) {
+            int current = queue.poll();
+
+            for (int key : rooms.get(current)) {
+                if (!visited[key]) {
+                    visited[key] = true;
+                    queue.add(key);
+                }
+            }
+        }
+    }
+}
