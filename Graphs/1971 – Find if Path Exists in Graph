@@ -1,0 +1,52 @@
+// LeetCode 1971
+// Find if Path Exists in Graph
+// Topic: Graphs (BFS)
+// Difficulty: Easy
+// Time Complexity: O(V + E)
+// Space Complexity: O(V)   // due to visited array and queue
+
+import java.util.*;
+
+class Solution {
+
+    public boolean validPath(int n, int[][] edges, int source, int destination) {
+        boolean[] visited = new boolean[n];
+
+        List<List<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+
+            adj.get(u).add(v);
+            adj.get(v).add(u);
+        }
+
+        return bfs(source, destination, adj, visited);
+    }
+
+    private boolean bfs(int source, int destination, List<List<Integer>> adj, boolean[] visited) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(source);
+        visited[source] = true;
+
+        while (!queue.isEmpty()) {
+            int current = queue.poll();
+
+            if (current == destination)
+                return true;
+
+            for (int neighbor : adj.get(current)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        return false;
+    }
+}
