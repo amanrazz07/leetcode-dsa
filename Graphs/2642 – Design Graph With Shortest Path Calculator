@@ -1,0 +1,82 @@
+// LeetCode 2642
+// Design Graph With Shortest Path Calculator
+// Topic: Graphs (Dijkstra’s Algorithm)
+// Difficulty: Hard
+// Time Complexity: O((V + E) log V)
+// Space Complexity: O(V + E)
+
+import java.util.*;
+
+class Graph {
+
+    static class Pair implements Comparable<Pair> {
+        int node, dist;
+
+        Pair(int n, int d) {
+            node = n;
+            dist = d;
+        }
+
+        public int compareTo(Pair o) {
+            return this.dist - o.dist;
+        }
+    }
+
+    ArrayList<ArrayList<Pair>> adj;
+    int V;
+
+    public Graph(int n, int[][] edges) {
+        V = n;
+        adj = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < edges.length; i++) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            int w = edges[i][2];
+
+            adj.get(u).add(new Pair(v, w));
+        }
+    }
+
+    public void addEdge(int[] edge) {
+        int u = edge[0];
+        int v = edge[1];
+        int w = edge[2];
+
+        adj.get(u).add(new Pair(v, w));
+    }
+
+    public int shortestPath(int node1, int node2) {
+        int[] dist = new int[V];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+
+        dist[node1] = 0;
+        pq.add(new Pair(node1, 0));
+
+        while (!pq.isEmpty()) {
+            Pair cur = pq.poll();
+            int node = cur.node;
+            int d = cur.dist;
+
+            if (node == node2)
+                return d;
+
+            for (int i = 0; i < adj.get(node).size(); i++) {
+                Pair nei = adj.get(node).get(i);
+
+                if (d + nei.dist < dist[nei.node]) {
+                    dist[nei.node] = d + nei.dist;
+                    pq.add(new Pair(nei.node, dist[nei.node]));
+                }
+            }
+        }
+
+        return -1;
+    }
+}
