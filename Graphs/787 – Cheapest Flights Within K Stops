@@ -1,0 +1,63 @@
+// LeetCode 787
+// Cheapest Flights Within K Stops
+// Topic: Graphs (BFS with Stops Constraint)
+// Difficulty: Medium
+// Time Complexity: O(V + E)
+// Space Complexity: O(V + E)
+
+import java.util.*;
+
+class Solution {
+
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+
+        ArrayList<ArrayList<int[]>> adj = new ArrayList<>();
+        for (int i = 0; i < n; i++)
+            adj.add(new ArrayList<>());
+
+        for (int i = 0; i < flights.length; i++) {
+            int u = flights[i][0];
+            int v = flights[i][1];
+            int w = flights[i][2];
+
+            adj.get(u).add(new int[]{v, w});
+        }
+
+        return bfs(n, adj, src, dst, k);
+    }
+
+    private int bfs(int n, ArrayList<ArrayList<int[]>> adj, int src, int dst, int k) {
+
+        int[] dist = new int[n];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[src] = 0;
+
+        Queue<int[]> q = new LinkedList<>();
+        q.offer(new int[]{src, 0, 0}); // node, cost, stops
+
+        while (!q.isEmpty()) {
+
+            int[] curr = q.poll();
+            int node = curr[0];
+            int cost = curr[1];
+            int stops = curr[2];
+
+            if (stops > k)
+                continue;
+
+            for (int i = 0; i < adj.get(node).size(); i++) {
+
+                int[] nei = adj.get(node).get(i);
+                int next = nei[0];
+                int price = nei[1];
+
+                if (cost + price < dist[next]) {
+                    dist[next] = cost + price;
+                    q.offer(new int[]{next, dist[next], stops + 1});
+                }
+            }
+        }
+
+        return dist[dst] == Integer.MAX_VALUE ? -1 : dist[dst];
+    }
+}
