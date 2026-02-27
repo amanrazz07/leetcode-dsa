@@ -1,0 +1,53 @@
+// LeetCode 202
+// Happy Number
+// Topic: Math (Cycle Detection)
+// Difficulty: Easy
+// Time Complexity: O(log n)
+// Space Complexity: O(1)
+
+class Solution {
+
+    public boolean isHappy(int n) {
+
+        // 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4 (cycle)
+
+        while (n != 1 && n != 4) {
+            int sum = 0;
+            while (n > 0) {
+                int d = n % 10;
+                sum += d * d;
+                n /= 10;
+            }
+            n = sum;
+        }
+        return n == 1;
+    }
+}
+
+
+
+
+
+// LeetCode 202
+// Happy Number
+// Topic: Math (Cycle Detection)
+// Difficulty: Easy
+// Time Complexity: O(log n)
+// Space Complexity: O(1)
+
+class Solution{
+    public boolean isHappy(int n){
+        while(n!=1&&n!=4){
+            // 4→16→37→58→89→145→42→20→4
+            int sum=0;
+            while(n>0){
+                int d=n%10;
+                sum+=d*d;
+                n/=10;
+            }
+            n=sum;
+        }
+        if(n==1)return true;
+        else return false;
+    }
+}
