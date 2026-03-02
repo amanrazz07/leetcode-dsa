@@ -1,0 +1,14 @@
+// LeetCode 58
+// Length of Last Word
+// Topic: Strings
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+class Solution{
+    public int lengthOfLastWord(String s){
+        String[] arr=s.split(" ");
+        int n=arr.length-1;
+        return arr[n].length();
+    }
+}
