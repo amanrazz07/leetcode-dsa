@@ -1,0 +1,22 @@
+// LeetCode 7
+// Reverse Integer
+// Topic: Math
+// Difficulty: Medium
+// Time Complexity: O(log n)
+// Space Complexity: O(1)
+
+class Solution{
+    public int reverse(int x){
+        int n=x;
+        int rev=0;
+        while(n!=0){
+            int last_digit=n%10;
+            n=n/10;
+            if(rev>214748364||rev<-214748364){
+                return 0;
+            }
+            rev=rev*10+last_digit;
+        }
+        return rev;
+    }
+}
