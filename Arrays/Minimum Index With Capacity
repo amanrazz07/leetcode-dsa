@@ -1,0 +1,21 @@
+// Minimum Index With Capacity
+// Topic: Arrays
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+class Solution{
+    public int minimumIndex(int[] arr,int size){
+        int n=arr.length;
+        int ans=-1;
+        int minCap=Integer.MAX_VALUE;
+        for(int i=0;i<n;i++){
+            if(arr[i]>=size){
+                if(arr[i]<minCap){
+                    minCap=arr[i];
+                    ans=i;
+                }
+            }
+        }
+        return ans;
+    }
+}
