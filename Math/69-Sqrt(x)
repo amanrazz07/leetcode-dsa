@@ -1,0 +1,25 @@
+// LeetCode 69
+// Sqrt(x)
+// Topic: Binary Search
+// Difficulty: Easy
+// Time Complexity: O(log x)
+// Space Complexity: O(1)
+
+class Solution{
+    public int mySqrt(int x){
+        int low=0;
+        int high=x;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            long m=(long)mid*mid;
+            if(m==x){
+                return mid;
+            }else if(m>x){
+                high=mid-1;
+            }else{
+                low=mid+1;
+            }
+        }
+        return high;
+    }
+}
