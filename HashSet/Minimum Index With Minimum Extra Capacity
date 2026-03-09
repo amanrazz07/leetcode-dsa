@@ -1,0 +1,30 @@
+// Minimum Index With Minimum Extra Capacity
+// Topic: Arrays / HashMap
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+import java.util.*;
+
+class Solution{
+    public int minimumIndex(int[] arr,int size){
+        int n=arr.length;
+        HashMap<Integer,Integer>map=new HashMap<>();
+        for(int i=0;i<n;i++){
+            if(arr[i]>=size){
+                map.put(i,arr[i]-size);
+            }
+        }
+        if(map.size()==0)return -1;
+        int minDiff=Integer.MAX_VALUE;
+        int ans=-1;
+        for(Map.Entry<Integer,Integer>entry:map.entrySet()){
+            int index=entry.getKey();
+            int diff=entry.getValue();
+            if(diff<minDiff||(diff==minDiff&&(ans==-1||index<ans))){
+                minDiff=diff;
+                ans=index;
+            }
+        }
+        return ans;
+    }
+}
