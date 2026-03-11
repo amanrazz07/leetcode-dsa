@@ -1,0 +1,23 @@
+// LeetCode 169
+// Majority Element
+// Topic: HashMap
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+import java.util.*;
+
+class Solution{
+    public int majorityElement(int[]nums){
+        HashMap<Integer,Integer>map=new HashMap<>();
+        int n=nums.length;
+        for(int num:nums){
+            int freq=map.getOrDefault(num,0)+1;
+            map.put(num,freq);
+            if(freq>n/2){
+                return num;
+            }
+        }
+        return -1;
+    }
+}
