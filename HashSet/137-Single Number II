@@ -1,0 +1,23 @@
+// LeetCode 137
+// Single Number II
+// Topic: HashMap
+// Difficulty: Medium
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+import java.util.*;
+
+class Solution{
+    public int singleNumber(int[]nums){
+        HashMap<Integer,Integer>map=new HashMap<>();
+        for(int num:nums){
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        for(int key:map.keySet()){
+            if(map.get(key)<3){
+                return key;
+            }
+        }
+        return -1;
+    }
+}
