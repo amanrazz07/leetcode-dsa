@@ -1,0 +1,10 @@
+// Topic: Arrays
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+class Solution {
+    public boolean uniformArray(int[] nums1) {
+        return true;
+    }
+}
