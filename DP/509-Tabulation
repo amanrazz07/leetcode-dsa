@@ -1,0 +1,29 @@
+// LeetCode 509
+// Fibonacci Number (Tabulation - Bottom-Up)
+// Topic: Dynamic Programming
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+
+class Solution {
+    public int fib(int n) {
+        if(n<=1)return n;
+
+        int[]dp=new int[n+1];
+        dp[0]=0;
+        dp[1]=1;
+
+        for(int i=2;i<=n;i++){
+            dp[i]=dp[i-1]+dp[i-2];
+        }
+
+        return dp[n];
+    }
+}
+
+// Ye Bottom-Up (Tabulation) approach hai:
+// Pehle hum chhote problems (dp[0], dp[1]) solve karte hain,
+// phir unke answers ka use karke bade problems solve karte hain.
+// Matlab step by step neeche se upar ja rahe hain (0 → n),
+// isliye ise Bottom-Up bolte hain.
