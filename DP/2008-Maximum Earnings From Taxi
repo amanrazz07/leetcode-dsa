@@ -1,0 +1,61 @@
+// LeetCode 2008
+// Maximum Earnings From Taxi
+// Topic: Dynamic Programming, Sorting
+// Difficulty: Medium
+// Time Complexity: O(n + rides)
+// Space Complexity: O(n + rides)
+
+import java.util.*;
+
+class Solution {
+    public long maxTaxiEarnings(int n,int[][]rides){
+
+        // group rides by end point
+        ArrayList<ArrayList<int[]>>list=new ArrayList<>();
+        for(int i=0;i<=n;i++)list.add(new ArrayList<>());
+
+        for(int i=0;i<rides.length;i++){
+            int start=rides[i][0];
+            int end=rides[i][1];
+            int tip=rides[i][2];
+            list.get(end).add(new int[]{start,tip});
+        }
+
+        long[]dp=new long[n+1];
+
+        for(int i=1;i<=n;i++){
+
+            // skip current point
+            dp[i]=dp[i-1];
+
+            // take rides ending at i
+            for(int j=0;j<list.get(i).size();j++){
+                int start=list.get(i).get(j)[0];
+                int tip=list.get(i).get(j)[1];
+
+                long profit=i-start+tip;
+
+                dp[i]=Math.max(dp[i],dp[start]+profit);
+            }
+        }
+
+        return dp[n];
+    }
+}
+
+/*
+Approach:
+
+- Group all rides by their ending point
+- dp[i] = max earning till point i
+
+At each point i:
+1. Skip → dp[i]=dp[i-1]
+2. Take → check all rides ending at i
+   profit = (end-start)+tip
+
+   dp[i]=max(dp[i],dp[start]+profit)
+
+Key Idea:
+Classic DP + Interval grouping optimization
+*/
