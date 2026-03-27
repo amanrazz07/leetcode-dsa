@@ -1,0 +1,21 @@
+// LeetCode 1221
+// Split a String in Balanced Strings
+// Topic: Strings, Greedy
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+class Solution {
+    public int balancedStringSplit(String s){
+        int count=0;
+        int ans=0;
+
+        for(char ch:s.toCharArray()){
+            if(ch=='L')count++;
+            else count--;
+
+            if(count==0)ans++;
+        }
+        return ans;
+    }
+}
