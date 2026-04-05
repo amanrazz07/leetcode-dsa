@@ -1,0 +1,21 @@
+// LeetCode 657
+// Robot Return to Origin
+// Topic: Strings, Simulation
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+class Solution {
+    public boolean judgeCircle(String moves){
+        int x=0,y=0;
+
+        for(char c:moves.toCharArray()){
+            if(c=='U')y++;
+            else if(c=='D')y--;
+            else if(c=='R')x++;
+            else x--;
+        }
+
+        return x==0 && y==0;
+    }
+}
