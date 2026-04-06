@@ -1,0 +1,27 @@
+// LeetCode 746
+// Min Cost Climbing Stairs (Memoization - Forward)
+// Topic: Dynamic Programming
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+import java.util.*;
+
+class Solution {
+    public int minCostClimbingStairs(int[]cost){
+        int n=cost.length;
+        int[]dp=new int[n];
+        Arrays.fill(dp,-1);
+
+        return Math.min(minCost(cost,0,dp),minCost(cost,1,dp));
+    }
+
+    public int minCost(int[]cost,int idx,int[]dp){
+        int n=cost.length;
+
+        if(idx==n-1 || idx==n-2)return cost[idx];
+        if(dp[idx]!=-1)return dp[idx];
+
+        return dp[idx]=cost[idx]+Math.min(minCost(cost,idx+1,dp),minCost(cost,idx+2,dp));
+    }
+}
