@@ -4,6 +4,7 @@
 // Difficulty: Hard
 // Time Complexity: O(n^2)
 // Space Complexity: O(n^2)
+// DP
 
 class Solution {
     public int minCut(String s){
