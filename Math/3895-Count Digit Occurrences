@@ -1,0 +1,21 @@
+// Count Digit Occurrences
+// Topic: Arrays, Math
+// Difficulty: Easy
+// Time Complexity: O(n * d) // d = number of digits
+// Space Complexity: O(1)
+
+class Solution {
+    public int countDigitOccurrences(int[]nums,int digit){
+        int n=nums.length;
+        int count=0;
+
+        for(int i=0;i<n;i++){
+            while(nums[i]>0){
+                if(nums[i]%10==digit)count++;
+                nums[i]/=10;
+            }
+        }
+
+        return count;
+    }
+}
