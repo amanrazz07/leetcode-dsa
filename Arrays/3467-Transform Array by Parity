@@ -1,0 +1,30 @@
+// Transform Array by Parity
+// Topic: Arrays
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+class Solution {
+    public int[] transformArray(int[]nums){
+        int countZero=0;
+
+        // count even numbers
+        for(int num:nums){
+            if(num%2==0)countZero++;
+        }
+
+        int[]res=new int[nums.length];
+
+        // fill 0s
+        for(int i=0;i<countZero;i++){
+            res[i]=0;
+        }
+
+        // fill 1s
+        for(int i=countZero;i<nums.length;i++){
+            res[i]=1;
+        }
+
+        return res;
+    }
+}
