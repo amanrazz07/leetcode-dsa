@@ -1,0 +1,51 @@
+// Two Stacks in One Array
+// Topic: Stack, Arrays
+// Difficulty: Easy-Medium
+// Time Complexity: O(1) for all operations
+// Space Complexity: O(n)
+
+/*
+Idea:
+- Stack1 grows from left → right
+- Stack2 grows from right → left
+- Overflow when top1 + 1 == top2
+*/
+
+class twoStacks{
+    int[]arr;
+    int top1,top2,size;
+
+    twoStacks(){
+        size=1000;
+        arr=new int[size];
+        top1=-1;
+        top2=size;
+    }
+
+    twoStacks(int n){
+        size=n;
+        arr=new int[n];
+        top1=-1;
+        top2=n;
+    }
+
+    void push1(int x){
+        if(top1+1==top2)return; // overflow
+        arr[++top1]=x;
+    }
+
+    void push2(int x){
+        if(top1+1==top2)return; // overflow
+        arr[--top2]=x;
+    }
+
+    int pop1(){
+        if(top1==-1)return -1; // underflow
+        return arr[top1--];
+    }
+
+    int pop2(){
+        if(top2==size)return -1; // underflow
+        return arr[top2++];
+    }
+}
