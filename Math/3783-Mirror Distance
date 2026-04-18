@@ -1,0 +1,20 @@
+// Mirror Distance
+// Topic: Math
+// Difficulty: Easy
+// Time Complexity: O(d) // d = number of digits
+// Space Complexity: O(1)
+
+class Solution {
+    public int mirrorDistance(int n){
+        int rev=0;
+        int org=n;
+
+        while(n>0){
+            int x=n%10;
+            rev=rev*10+x;
+            n/=10;
+        }
+
+        return Math.abs(rev-org);
+    }
+}
