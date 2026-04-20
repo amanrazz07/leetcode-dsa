@@ -10,10 +10,7 @@ I consistently solve problems to strengthen problem-solving skills and prepare f
 
 ## 📊 Problem Solving Stats
 
-Total Problems Solved : 262  
-Easy   : 102  
-Medium : 121  
-Hard   : 39  
+Total Problems Solved : 362  
 
 ✔ Focused on pattern recognition  
 ✔ Optimized time & space complexity  
