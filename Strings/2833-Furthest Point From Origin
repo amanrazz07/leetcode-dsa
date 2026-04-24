@@ -1,0 +1,20 @@
+// LeetCode 2833
+// Furthest Point From Origin
+// Topic: Strings, Greedy
+// Difficulty: Easy
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+class Solution {
+    public int furthestDistanceFromOrigin(String s){
+        int L=0,R=0,blank=0;
+
+        for(char ch:s.toCharArray()){
+            if(ch=='L')L++;
+            else if(ch=='R')R++;
+            else blank++;
+        }
+
+        return Math.abs(L-R)+blank;
+    }
+}
