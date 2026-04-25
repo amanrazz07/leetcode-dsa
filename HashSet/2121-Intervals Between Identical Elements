@@ -1,0 +1,43 @@
+// LeetCode 2121
+// Intervals Between Identical Elements
+// Topic: Arrays, HashMap, Prefix Sum
+// Difficulty: Medium
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+import java.util.*;
+
+class Solution {
+    public long[] distance(int[]nums){
+        int n=nums.length;
+        long[]res=new long[n];
+        Map<Integer,List<Integer>>map=new HashMap<>();
+
+        // group indices by value
+        for(int i=0;i<n;i++){
+            map.computeIfAbsent(nums[i],k->new ArrayList<>()).add(i);
+        }
+
+        // process each group
+        for(List<Integer>list:map.values()){
+            int sz=list.size();
+            long total=0;
+
+            for(int x:list)total+=x;
+
+            long pre=0;
+
+            for(int i=0;i<sz;i++){
+                int idx=list.get(i);
+
+                long left=(long)i*idx-pre;
+                long right=(total-pre-idx)-(long)(sz-1-i)*idx;
+
+                res[idx]=left+right;
+                pre+=idx;
+            }
+        }
+
+        return res;
+    }
+}
