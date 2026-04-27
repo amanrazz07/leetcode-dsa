@@ -1,0 +1,22 @@
+// Valid Digit Check
+// Topic: Strings
+// Difficulty: Easy
+// Time Complexity: O(d) // d = number of digits
+// Space Complexity: O(d)
+
+class Solution {
+    public boolean validDigit(int n,int x){
+        String s=Integer.toString(n);
+        char target=(char)(x+'0');
+
+        // should not start with digit x
+        if(s.charAt(0)==target)return false;
+
+        // must contain digit x at least once (after first position)
+        for(int i=1;i<s.length();i++){
+            if(s.charAt(i)==target)return true;
+        }
+
+        return false;
+    }
+}
