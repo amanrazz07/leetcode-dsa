@@ -1,0 +1,17 @@
+// LeetCode 796
+// Rotate String
+// Topic: Strings
+// Difficulty: Easy
+// Time Complexity: O(n^2) // contains() may take O(n)
+// Space Complexity: O(n)
+
+class Solution {
+    public boolean rotateString(String s,String goal){
+        if(s.length()!=goal.length()){
+            return false;
+        }
+
+        String a=s+s;
+        return a.contains(goal);
+    }
+}
