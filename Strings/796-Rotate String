@@ -2,7 +2,7 @@
 // Rotate String
 // Topic: Strings
 // Difficulty: Easy
-// Time Complexity: O(n^2) // contains() may take O(n)
+// Time Complexity: O(n) // contains() may take O(n)
 // Space Complexity: O(n)
 
 class Solution {
