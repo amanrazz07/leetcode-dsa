@@ -1,0 +1,44 @@
+// LeetCode 2553
+// Separate the Digits in an Array
+// Topic: Arrays, Math
+// Difficulty: Easy
+// Time Complexity: O(n*d) // d = number of digits
+// Space Complexity: O(n*d)
+
+import java.util.*;
+
+class Solution {
+    public int[] separateDigits(int[]nums){
+        int n=nums.length;
+        ArrayList<Integer>list=new ArrayList<>();
+
+        for(int i=0;i<n;i++){
+            ArrayList<Integer>temp=new ArrayList<>();
+
+            if(nums[i]<=9){
+                temp.add(nums[i]);
+            }
+
+            while(nums[i]>9){
+                int r=nums[i]%10;
+                temp.add(r);
+                nums[i]/=10;
+
+                if(nums[i]<=9){
+                    temp.add(nums[i]);
+                }
+            }
+
+            Collections.reverse(temp);
+            list.addAll(temp);
+        }
+
+        int[]arr=new int[list.size()];
+
+        for(int i=0;i<arr.length;i++){
+            arr[i]=list.get(i);
+        }
+
+        return arr;
+    }
+}
