@@ -1,0 +1,28 @@
+// Binary Strings Without Consecutive 1s
+// Topic: Recursion, Backtracking
+// Difficulty: Easy
+// Time Complexity: O(2^n)
+// Space Complexity: O(n)
+
+public class BinaryStringWithoutConsecutiveOnes {
+    public static void main(String[]args){
+        String s="";
+        print(s,3);
+    }
+
+    public static void print(String s,int n){
+        int m=s.length();
+
+        if(m==n){
+            System.out.println(s);
+            return;
+        }
+
+        if(m==0 || s.charAt(m-1)=='0'){
+            print(s+"0",n);
+            print(s+"1",n);
+        }else{
+            print(s+"0",n);
+        }
+    }
+}
