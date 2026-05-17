@@ -1,0 +1,31 @@
+// LeetCode 22
+// Generate Parentheses
+// Topic: Backtracking
+// Difficulty: Medium
+// Time Complexity: O(Catalan(n))
+// Space Complexity: O(n)
+
+import java.util.*;
+
+class Solution {
+    public List<String> generateParenthesis(int n){
+        List<String>list=new ArrayList<>();
+        print(0,0,"",n,list);
+        return list;
+    }
+
+    public static void print(int open,int close,String s,int n,List<String>list){
+        if(s.length()==n*2){
+            list.add(s);
+            return;
+        }
+
+        if(open<n){
+            print(open+1,close,s+"(",n,list);
+        }
+
+        if(close<open){
+            print(open,close+1,s+")",n,list);
+        }
+    }
+}
